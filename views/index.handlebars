@@ -1,0 +1,26 @@
+<html>
+
+<body>
+    <form id="registrationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="password">Numeric Password:</label>
+        <input type="password" id="password" name="password" pattern="\d+" title="Please enter a numeric password"
+            required>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function (event) {
+            const passwordInput = document.getElementById('password');
+            if (!/^\d+$/.test(passwordInput.value)) {
+                alert('Password must be numeric.');
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    </script>
+</body>
+
+</html>
